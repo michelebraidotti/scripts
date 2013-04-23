@@ -1,0 +1,17 @@
+Contig1 	Contig1
+Contig2 	Contig2
+Contig2 	Contig146742
+Contig3 	Contig3
+Contig3 	Contig24076
+Contig3 	Contig177195
+Contig3 	Contig2338
+Contig4 	Contig4
+Contig4 	Contig60154
+Contig4 	Contig60154
+Contig4 	Contig60154
+Contig4 	Contig78182
+Contig4 	Contig78182
+Contig4 	Contig78182
+Contig4 	Contig78182
+Contig4 	Contig78182
+

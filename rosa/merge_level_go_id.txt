@@ -1,0 +1,8 @@
+Level	  GO ID		Term			#increasing	Level	GO ID		Term			#decreasing	Level	GO ID		Term			#transient
+1	  GO:0008150	biological_process	2860		1	GO:0008150	biological_process	3691		1	GO:0008150	biological_process	385
+2	  GO:0022610	biological adhesion	2		2	GO:0065007	biological regulation	204		2	GO:0065007	biological regulation	20
+2	  GO:0065007	biological regulation	188		2	GO:0015976	carbon utilization	8		2	GO:0015976	carbon utilization	1
+2	  GO:0015976	carbon utilization	2		2	GO:0008283	cell proliferation	3		2	GO:0071554	cell wall 		2
+2	  GO:0008283	cell proliferation	2		2	GO:0071554	cell wall 		13		2	GO:0044085	cellular 		3
+2	  GO:0071554	cell wall		25		2	GO:0044085	cellular		18		2	GO:0016043	cellular comp		5
+

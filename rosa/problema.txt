@@ -1,0 +1,31 @@
+Ciao, 
+l'imput e' una tabella di questo tipo:
+
+Level	  GO ID		Term			#increasing	Level	GO ID		Term			#decreasing	Level	GO ID		Term			#transient
+1	  GO:0008150	biological_process	2860		1	GO:0008150	biological_process	3691		1	GO:0008150	biological_process	385
+2	  GO:0022610	biological adhesion	2		2	GO:0065007	biological regulation	204		2	GO:0065007	biological regulation	20
+2	  GO:0065007	biological regulation	188		2	GO:0015976	carbon utilization	8		2	GO:0015976	carbon utilization	1
+2	  GO:0015976	carbon utilization	2		2	GO:0008283	cell proliferation	3		2	GO:0071554	cell wall 		2
+2	  GO:0008283	cell proliferation	2		2	GO:0071554	cell wall 		13		2	GO:0044085	cellular 		3
+2	  GO:0071554	cell wall		25		2	GO:0044085	cellular		18		2	GO:0016043	cellular comp		5
+
+
+devo ottenere una tabella di questo genere:
+
+Level	  GO ID		Term			#increasing	#decreasing	#transient
+1	  GO:0008150	biological_process	2860		3691		385
+2	  GO:0022610	biological adhesion	2		0		0
+2	  GO:0065007	biological regulation	188		204		20
+2	  GO:0015976	carbon utilization	2		8		1
+2	  GO:0008283	cell proliferation	2		3		0
+2	  GO:0071554	cell wall		25		13		2
+2	  GO:0044085	cellular		0		18		3
+2	  GO:0016043	cellular comp		0		0		5
+
+
+
+in pratica:
+
+se si mettono insieme tutti i Level, Go id e Term presenti nella tabella (messi uno di seguito all'altro),
+per ogni Level, Go id e Term va associato il valore di increasing, decreasing e transient.
+Se noti questo valore puo' essere uguale a zero, per esempio per il GO id= GO:0022610 il valore di decreasing=0 infatti nella tabella di input questo valore non e' presente nella colonna decreasing.
