@@ -4,6 +4,8 @@ countOccurences' (Num b) => [Char] -> [(Char, b)] -> [(Char, b)]
 isContained Char -> [Char] -> Boolean
 flatten [(Char, a)] -> [Char]
 
+foldr (\acc (k,v) -> acc ++ k) [] [('a',1),('b', 2)] 
+
 countOccurences' [] res = res
 countOccurences' (x:xs) res =
 	if ( isContained x (flatten res) ) 

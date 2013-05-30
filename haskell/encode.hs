@@ -1,14 +1,11 @@
 encode :: (Num b) => [Char] -> [(Char, b)]
-encode' :: (Num b) => [Char] -> [(Char, b)] -> [(Char, b)]
-increment :: Int -> (Char, Int) -> (Char, Int)
 
-increment x (k, v) = (k, v + x)
+encode [] = [('?', 0)] 
+encode (x:xs) = foldl encodeMe [(x,1)] xs
 
-encode [] = [('?', 0)]
-encode (x:xs) = encode' xs [(x, 1)]
-encode' [] res = res
-encode' (x:xs) res =
+encodeMe :: (Num b) => [(Char, b)] -> Char -> [(Char, b)] 
+encodeMe res x = 
 	if ( x == fst ( last res ) ) 
-		then encode' xs ( init res ++ [(x, (snd (last res) + 1))] )
-		else encode' xs ( res ++ [(x,1)] )
+		then init res ++ [(x, (snd (last res) + 1))] 
+		else res ++ [(x,1)] 
 
