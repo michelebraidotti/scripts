@@ -1,13 +1,11 @@
 -- countOccurence "aaaccbbbaaab" = [('a',6),('c',2),('b',4)]
-countOccurences (Num b) => [Char] -> [(Char, b)]
-countOccurences' (Num b) => [Char] -> [(Char, b)] -> [(Char, b)] 
-isContained Char -> [Char] -> Boolean
-flatten [(Char, a)] -> [Char]
+countOccurences :: (Num b) => [Char] -> [(Char, b)]
+countOccurences' :: (Num b) => [Char] -> [(Char, b)] -> [(Char, b)] 
 
-foldr (\acc (k,v) -> acc ++ k) [] [('a',1),('b', 2)] 
-
+countOccurences [] = []
+countOccurences (x:xs) = countOccurences' xs [(x,1)]
 countOccurences' [] res = res
 countOccurences' (x:xs) res =
-	if ( isContained x (flatten res) ) 
-		then -- call a mapped function thah adds 1 to the proper element of res
-		else res ++ [(x,1)]
+	if ( x `elem` (foldl (\acc x -> acc ++ [fst x]) [] res) ) 
+		then countOccurences'  xs  (map (\y-> if ( x == fst y) then (fst y, snd y + 1) else (fst y, snd y)) res)
+		else countOccurences'  xs  res ++ [(x,1)]
