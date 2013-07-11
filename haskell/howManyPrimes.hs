@@ -7,5 +7,8 @@ howManyPrimes :: Int -> Int
 howManyPrimes a = length [x| x<-[2..a], isPrime(x)]
 
 isPrime :: Int -> Bool
-isPrime a = length [x| x<-[2..(a-1)], a `mod` x == 0] == 0
+isPrime a = length (divisors a) == 0
+
+divisors :: Int -> [Int]
+divisors a = [x| x<-[2..(a-1)], a `mod` x == 0] 
 
