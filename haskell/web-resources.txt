@@ -1,0 +1,8 @@
+-- Guides
+http://en.wikibooks.org/wiki/Haskell
+http://learnyouahaskell.com/chapters
+http://www.haskell.org/haskellwiki/Hitchhikers_guide_to_Haskell
+-- Problems
+http://www.haskell.org/haskellwiki/99_questions
+http://rosalind.info/problems/tree-view/
+
