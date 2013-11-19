@@ -1,18 +1,13 @@
+import Data.Char
+
 rnaToProtein :: [Char] -> [Char]
-rnaToProtein rna = rnaToProtein' rna []
+rnaToProtein rna = rnaToProtein' (map toUpper rna) []
 
 rnaToProtein' :: [Char] -> [Char] -> [Char]
 rnaToProtein' rna prot = 
 	if length rna < 3 
 		then prot
-		else rnaToProtein' (removeTriplet rna) (prot ++ convertToAa(getTriplet rna))
-
-getTriplet :: [Char] -> [Char]
-getTriplet l = [head l] ++ [head ( tail l)] ++ [head (tail (tail l))]
-
-removeTriplet :: [Char] -> [Char]
-removeTriplet l = tail (tail (tail l))
-
+		else rnaToProtein' (drop 3 rna) (prot ++ convertToAa(take 3 rna))
 
 convertToAa :: [Char] -> [Char]
 convertToAa rna
