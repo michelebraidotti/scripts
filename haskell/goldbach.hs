@@ -1,23 +1,10 @@
+--module Main where
+
+import CustomMath.Primes
+
+-- main = print (goldbach 14)
+
 goldbach :: Int -> (Int, Int)
-
-divisors :: Int -> [Int]
-divisors a = [x| x<-[2..(a-1)], a `mod` x == 0] 
-
-primeTest :: Int -> Int -> Bool
-primeTest x y
-	| y == 1    = True
-	| x == 1    = True
-	| x == 2    = True
-	| otherwise = if ( x `mod` y == 0 )
-			then False
-			else primeTest x (y - 1) 
-
-isPrime :: Int -> Bool
-isPrime a = length (divisors a) == 0
-
-primesList :: Int -> [Int]
--- primesList a = [x| x<-[1..(a-1)], primeTest x (x-1)]  
-primesList a = [x| x<-[1..(a-1)], isPrime(x)]
 
 goldbach' :: Int -> [Int] -> (Int, Int) -> (Int, Int)
 goldbach a = 
