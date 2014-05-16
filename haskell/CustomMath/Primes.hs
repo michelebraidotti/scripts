@@ -6,7 +6,10 @@ module CustomMath.Primes ( howManyPrimes
 ) where 
 
 howManyPrimes :: Int -> Int
-howManyPrimes a = length [x| x<-[2..a], isPrime(x)]
+howManyPrimes a = length (listAllPrimes(a))
+
+listAllPrimes :: Int -> [Int]
+listAllPrimes a = [x| x<-[2..a], isPrime(x)]
 
 isPrime :: Int -> Bool
 isPrime a = length (divisors a) == 0
