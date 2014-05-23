@@ -1,12 +1,24 @@
 combinations :: Int -> [a] -> [[a]]
-combinations _ [] = [[]]
--- combinations x y  
---	| length y < x 	= y
---	| otherwise 	= [head y:combinations x-1 tail y]:combinations x-1 y
+combinations 1 xs = listOfLists xs
+-- TODO, doesn't work right now
+-- combinations 2 xs = listCombine (listOfLists xs) xs
+  
 
-combinations 1 [x] = [[x]]  
-combinations 1 (x:xs) = [x]:combinations 1 xs
-combinations n xs = map (x,  -> [x]:combinations n-1 xs)
--- combinations y (x:xs) = [x:combinations (y-1) (x:xs)]:combinations y xs 
+listCombine :: [a] -> [a] -> [[a]]
+listCombine xs ys = listCombine' xs ys []
+listCombine' :: [a] -> [a] -> [[a]] -> [[a]]
+listCombine' xs [] zs = zs
+listCombine' xs  (y:ys) zs = listCombine' xs ys [xs ++ [y]] ++ zs
+--Main> map (\x -> listCombine x ['a','b','c']) [['a','a'],['b','b'],['c','c']]
+--[["aac","aab","aaa"],["bbc","bbb","bba"],["ccc","ccb","cca"]
 
--- combinations n [x,y,z] = (x:combinations(n-1 xs))
+-- take a list and conver it in a list of lists with one element per sublist
+--Main> listOfLists [1,2,3]
+--[[1],[2],[3]]
+listOfLists :: [a] -> [[a]]
+listOfLists [] = [[]]
+listOfLists [x] = [[x]]
+listOfLists (x:xs) = [[x]] ++ listOfLists xs
+
+
+
