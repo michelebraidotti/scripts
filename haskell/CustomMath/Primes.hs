@@ -27,6 +27,5 @@ primeTest x y
 			else primeTest x (y - 1) 
 
 primesList :: Int -> [Int]
--- primesList a = [x| x<-[1..(a-1)], primeTest x (x-1)]  
 primesList a = [x| x<-[1..(a-1)], isPrime(x)]
 

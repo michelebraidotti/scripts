@@ -1,7 +1,7 @@
 combinations :: Int -> [a] -> [[a]]
 combinations 1 xs = listOfLists xs
--- TODO, doesn't work right now
--- combinations 2 xs = listCombine (listOfLists xs) xs
+-- TODO, doesn't work yet 
+combinations 2 xs = listCombine (combinations 1 xs) xs
   
 
 listCombine :: [a] -> [a] -> [[a]]
