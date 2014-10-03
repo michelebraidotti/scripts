@@ -7,4 +7,3 @@ lsort (x:xs) =
 	in
 		smalls ++ [x] ++ bigs
 
-
