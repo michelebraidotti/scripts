@@ -1,3 +1,4 @@
+--Uncomment "module main" and "main" definition for command line interaction
 --module Main where
 
 import CustomMath.Primes
@@ -22,3 +23,7 @@ goldbach' a (x:xs) res =
 -- if the number is not prime (has a divisor)
 -- and recurring on the second integer var
 
+goldbachList :: Int -> Int -> [(Int, (Int, Int))]
+goldbachList n m 
+  | even n = map (\x -> (x, (goldbach x))) [n,n+2..m]  
+  | odd n = map (\x -> (x, (goldbach x))) [n+1,n+3..m]

@@ -13,9 +13,13 @@ primeFactors' n (m:ms) =
 		then [m] ++ primeFactors' (quot n m) ([m] ++ ms) 
 		else primeFactors' n ms
 
-primeFactorsMult :: Int -> [(Int, Int)]
+countOccurences :: [Int] -> [(Int, Int)] -> [(Int, Int)]
+countOccurences (x:xs) []  = countOccurences xs [(x,1)]
+countOccurences [] xs = xs
+countOccurences (x:xs) ys = 
+  if ( (fst(head ys)) == x )
+    then countOccurences xs ([(x, (snd(head ys) + 1))] ++ (tail ys))
+    else countOccurences xs ([(x,1)] ++ ys)
 
--- WORK IN PROGRESS
-countOccurences :: [Int] -> [(Int, Int)]
-countOccurences [] = []
-countOccurences (x:xs) = [(x,1)] ++ countOccurences xs
+primeFactorsMult :: Int -> [(Int, Int)]
+primeFactorsMult n = countOccurences (primeFactors n) []

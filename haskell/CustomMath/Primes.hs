@@ -11,6 +11,10 @@ howManyPrimes a = length (listAllPrimes(a))
 listAllPrimes :: Int -> [Int]
 listAllPrimes a = [x| x<-[2..a], isPrime(x)]
 
+listPrimesRange :: Int -> Int -> [Int]
+listPrimesRange n m = filter isPrime [n..m]
+
+
 isPrime :: Int -> Bool
 isPrime a = length (divisors a) == 0
 
